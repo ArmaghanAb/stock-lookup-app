@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <title>Stock Lookup</title>
+</head>
+<body>
+    <h1>Stock Lookup</h1>
+    <form method="post">
+        <label>Enter a symbol:</label>
+        <input name="symbol" required>
+        <button type="submit">Lookup</button>
+    </form>
+
+    {% if stock_info %}
+        <p><strong>{{ stock_info.datetime }}</strong></p>
+        <p>{{ stock_info.name }}</p>
+        <p>
+            {{ stock_info.price }} 
+            {{ '+' if stock_info.change >= 0 else '' }}{{ stock_info.change }} 
+            ({{ '+' if stock_info.percent >= 0 else '' }}{{ stock_info.percent }}%)
+        </p>
+    {% elif error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
