@@ -7,4 +7,5 @@ This Flask app allows users to enter a stock ticker and view:
 - Price change
 - Percent change
 
-Deployed with Render.com
+Deployed with Render.com: https://stock-lookup-app.onrender.com/
+
