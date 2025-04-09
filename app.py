@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 import yfinance as yf
 import datetime
+import os
 
 app = Flask(__name__)
 
@@ -32,4 +33,5 @@ def index():
     return render_template('index.html', stock_info=stock_info, error=error)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+   port = int(os.environ.get("PORT", 5000))
+   app.run(host="0.0.0.0", port=port, debug=True)
